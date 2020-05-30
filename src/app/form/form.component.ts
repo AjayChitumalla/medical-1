@@ -15,7 +15,7 @@ export class FormComponent implements OnInit {
   cart=[];
   amount=0;
   ind;
-  constructor(private data:DataService,private route:Router) { }
+  constructor(public data:DataService,private route:Router) { }
     ngOnInit() {
     this.data.getCustomers().subscribe(
       d => this.customers = d,

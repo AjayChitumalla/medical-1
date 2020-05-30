@@ -11,7 +11,7 @@ export class OrderlistComponent implements OnInit {
   customers;
   orders=0;
   form:FormGroup;
-  constructor(private data:DataService, private fb:FormBuilder,private route:Router) {
+  constructor(public data:DataService, private fb:FormBuilder,private route:Router) {
     this.form = this.fb.group({
       checkArray: this.fb.array([])
     })

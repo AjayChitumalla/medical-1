@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class UserordersComponent implements OnInit {
   orders;
-  constructor(private data:DataService) { }
+  constructor(public data:DataService) { }
 
   ngOnInit() {
     if(localStorage.getItem('ShopName')!=""){

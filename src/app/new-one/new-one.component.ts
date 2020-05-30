@@ -12,7 +12,7 @@ export class NewOneComponent implements OnInit {
     ShopName:'',
     Amount:0
   }
-  constructor(private data:DataService,private route:Router) { }
+  constructor(public data:DataService,private route:Router) { }
 
   ngOnInit() {
   }

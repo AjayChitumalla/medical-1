@@ -8,7 +8,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private data:DataService,private route:Router) { }
+  constructor(public data:DataService,private route:Router) { }
 
   ngOnInit() {
     if(this.data.loggedIn())

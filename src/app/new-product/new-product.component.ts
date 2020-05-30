@@ -11,7 +11,7 @@ export class NewProductComponent implements OnInit {
     Name:'',
     Price:0
   }
-  constructor(private data:DataService,private route:Router) { }
+  constructor(public data:DataService,private route:Router) { }
 
   ngOnInit() {
   }

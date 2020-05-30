@@ -11,7 +11,7 @@ export class RegisterComponent implements OnInit {
   username="";
   password="";
   except="";
-  constructor(private data:DataService,private router:Router,private route:ActivatedRoute) { }
+  constructor(public data:DataService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
   }

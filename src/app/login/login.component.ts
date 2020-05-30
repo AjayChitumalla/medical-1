@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   password="";
   invusr="";
   invpwd="";
-  constructor(private data:DataService,private router:Router,private route:ActivatedRoute) { }
+  constructor(public data:DataService,private router:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
   }
