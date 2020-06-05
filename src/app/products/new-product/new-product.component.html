@@ -1,0 +1,20 @@
+<div class="container"style="width: 40%;">
+    <h3>New Product</h3>
+    <div *ngIf="!this.allowed" style="padding-left:5%;color:red;border:1px solid red;margin-left:30%;width:30%;border-radius:5px;">
+      Product already exists!
+    </div>
+    <span style="color:red;">*</span><span style="font-size: smaller;"> Required</span><br><br>
+    <br>
+    <form>
+      <div class="form-group">
+        <label for="name">Name of Product </label><span style="color:red">*</span>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="product.Name" name="Name">
+      </div>
+      <div class="form-group">
+        <label for="price">Price of Product </label><span style="color:red">*</span>
+        <input type="text" class="form-control" id="price" required [(ngModel)]="product.Price" name="Price">
+      </div>
+      <button [disabled]="!valid()"type="submit" class="btn btn-success" (click)="OnSubmit(product)">Submit</button>
+
+    </form>
+</div>

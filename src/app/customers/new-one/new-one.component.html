@@ -1,0 +1,17 @@
+<div class="container" style="width:40%">
+    <h3>New Shop</h3>
+    <div *ngIf="!this.allowed" style="padding-left:5%;color:red;border:1px solid red;margin-left:30%;width:30%;border-radius:5px;">
+      Shop already exists!
+    </div>
+    <span style="color:red;">*</span><span style="font-size: smaller;"> Required</span><br><br>
+    <br>
+    <form #form="ngForm" (ngSubmit)="OnSubmit(customer)">
+      <div class="form-group">
+        <label for="name">Name </label><span style="color:red">*</span>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="customer.ShopName" name="name">
+      </div>
+
+      <button [disabled]="!valid()"type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { CustomerService } from '../customer.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-one',
@@ -12,9 +13,24 @@ export class NewOneComponent implements OnInit {
     ShopName:'',
     Amount:0
   }
-  constructor(public data:DataService,private route:Router) { }
+  customers;
+  ind;
+  allowed=1;
+  constructor(public data:CustomerService,private route:Router) { }
 
   ngOnInit() {
+    this.data.getCustomers().subscribe(
+      d => this.customers = d,
+      err=>{
+        if(err instanceof HttpErrorResponse){
+          if(err.status === 401){
+            this.route.navigate(['/login']);
+          }
+          if(err.status === 500){
+            this.route.navigate(['/login']);
+        }
+      }
+    });
   }
   valid(){
     if(this.customer.ShopName!="")
@@ -30,5 +46,4 @@ export class NewOneComponent implements OnInit {
     }
     setTimeout(()=>{this.route.navigate(['/newOrder'])},1000);
   }
-  get diagnostic() { return JSON.stringify(this.customer); }
 }

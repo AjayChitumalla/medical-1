@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     if(this.data.loggedIn())
-    this.route.navigate(['/newOrder']);
+    this.route.navigate(['/transactions/neworder']);
     else
     this.route.navigate(['/register']);
   }

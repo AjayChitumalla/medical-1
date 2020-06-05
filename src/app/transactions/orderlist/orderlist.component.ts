@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
-import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { TransactionService } from '../transaction.service';
 @Component({
   selector: 'app-orderlist',
   templateUrl: './orderlist.component.html',
@@ -11,14 +11,14 @@ export class OrderlistComponent implements OnInit {
   customers;
   orders=0;
   form:FormGroup;
-  constructor(public data:DataService, private fb:FormBuilder,private route:Router) {
+  constructor(public data:TransactionService, private fb:FormBuilder,private route:Router) {
     this.form = this.fb.group({
       checkArray: this.fb.array([])
     })
    }
 
   ngOnInit() {
-    this.data.getCustomers().subscribe(d => {
+    this.data.getCustomer().subscribe(d => {
       this.customers = d;
     });
   }

@@ -1,0 +1,39 @@
+<body>
+<div class="container">
+  <h2 style="text-align: center;">New Order</h2>
+  <span *ngIf="permission()">
+  <span style="color:red;margin-left: 35%;">*</span><span style="font-size: smaller;"> Required</span></span><br><br>
+    <form>
+      <div class="form-group" *ngIf="permission()">
+        <label style="margin-left: 35%;"for="shop">Shop Name </label><span style="color:red">*</span>
+        <select [(ngModel)]="selected" class="custom-select" (blur)="setName()" name="user" style="width:300px;">
+            <option value="" disabled></option>
+            <option style="font-size: medium;"*ngFor="let c of customers;let i=index" value="{{i}}">{{c.ShopName}}</option>
+         </select>
+         <div style="margin-left:40%;">Desired shop is not listed?<a routerLink="/customers/new">Add a shop</a> </div>
+      </div>
+      <div *ngIf="!permission() && !shop()"style="margin-left: 40%;">Your ShopName is not added.<a routerLink="/customers/new">Add Here</a> </div>
+      <br>
+      <br>
+      <div class="row justify-content-center">
+        <div class="col-md-3" style="min-height:40px;border:1px solid black;border-radius:5px;margin:5px;padding:2%" *ngFor="let p of products;let i=index">
+          <span>  
+          <b>{{p.Name}}</b><br><br>
+            <span>Price:<b>{{p.Price}}</b></span>
+            <span style="float:right;margin-top: -40px;">
+              <b> Quantity</b>
+              <br>
+              <button class="btn btn-small btn-warning" style="display:none;" [id]="'m'+i"(click)="check(i);remove(i)">-</button>
+              <span style="margin: 5px;"[id]="'count'+i"><b>0</b></span>
+              <button class="btn btn-small btn-success"(click)="add(i)">+</button>
+            </span>
+            </span>
+        </div>
+    </div>
+    <div *ngIf="permission()" style="margin-left: 40%;">Desired product is not listed?<a routerLink="/products/new">Add a Product</a> </div>
+    <br>
+      <button [disabled]="!valid()" *ngIf="permission()" style="float: right;"type="submit" class="btn btn-primary" (click)="OnSubmit()">Submit</button>
+      <button [disabled]="!shop()"*ngIf="!permission()" style="float: right;"type="submit" class="btn btn-primary" (click)="SpSubmit()">Submit</button>
+    </form>
+</div>
+</body>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { TransactionService } from '../transaction.service';
 import { identifierName } from '@angular/compiler';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -15,9 +15,9 @@ export class FormComponent implements OnInit {
   cart=[];
   amount=0;
   ind;
-  constructor(public data:DataService,private route:Router) { }
+  constructor(public data:TransactionService,private route:Router) { }
     ngOnInit() {
-    this.data.getCustomers().subscribe(
+    this.data.getCustomer().subscribe(
       d => this.customers = d,
       err=>{
         if(err instanceof HttpErrorResponse){
@@ -33,11 +33,6 @@ export class FormComponent implements OnInit {
     this.data.getProducts().subscribe(p => {
       this.products = p;
     });
-  }
-  permission(){
-    if(localStorage.getItem('username')==='abc')
-    return true;
-    return false;
   }
   setName(){
     console.log(this.selected);
@@ -101,6 +96,11 @@ export class FormComponent implements OnInit {
   }
   valid(){
     if(this.selected)
+    return true;
+    return false;
+  }
+  permission(){
+    if(localStorage.getItem('username')==='abc')
     return true;
     return false;
   }

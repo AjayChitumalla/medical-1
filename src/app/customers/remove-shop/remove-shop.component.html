@@ -1,0 +1,15 @@
+  <div class="container">
+    <h2 style="text-align: center;">Remove a Shop</h2>
+    <span style="color:red;margin-left: 35%;">*</span><span style="font-size: smaller;"> Required</span><br><br>
+    <h4 style="margin-left:25%;color:red">Select the shop to be deleted from the dropdown</h4>
+      <form>
+        <div class="form-group">
+          <label style="margin-left: 35%;"for="shop">Shop Name </label><span style="color:red">*</span>
+          <select [(ngModel)]="selected" class="custom-select" (blur)="setName()" name="user" style="width:300px;">
+              <option value="" disabled></option>
+              <option style="font-size: medium;"*ngFor="let c of customers;let i=index" value="{{c._id}}">{{c.ShopName}}</option>
+           </select>
+        </div>
+      </form>
+      <button [disabled]="!valid()" style="float: right;"type="submit" class="btn btn-warning" (click)="OnSubmit()">Submit</button>
+  </div>

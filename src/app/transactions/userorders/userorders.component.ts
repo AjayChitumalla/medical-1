@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { TransactionService } from '../transaction.service';
 
 @Component({
   selector: 'app-userorders',
@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class UserordersComponent implements OnInit {
   orders;
-  constructor(public data:DataService) { }
+  constructor(public data:TransactionService) { }
 
   ngOnInit() {
     if(localStorage.getItem('ShopName')!=""){
