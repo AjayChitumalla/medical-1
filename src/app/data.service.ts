@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService{
-  serverUrl = 'http://localhost:3000';
+  serverUrl = 'https://medicl-be.herokuapp.com';
   constructor(private http: HttpClient,private route:Router) { }
   atnc(username,password){
     return this.http.post(this.serverUrl+'/users/register',{username,password});

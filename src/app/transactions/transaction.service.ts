@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class TransactionService {
-  serverUrl = 'http://localhost:3000';
+  serverUrl = 'https://medicl-be.herokuapp.com';
   constructor(private http: HttpClient,private route:Router) { }
   getCustomer(){
     console.log('data service called');

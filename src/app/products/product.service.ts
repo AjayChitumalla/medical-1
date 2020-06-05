@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class ProductService {
-  serverUrl = 'http://localhost:3000';
+  serverUrl = 'https://medicl-be.herokuapp.com';
   constructor(private http: HttpClient,private route:Router) { }
   getProducts(){
     return this.http.get(this.serverUrl+'/products');

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class CustomerService {
-  serverUrl = 'http://localhost:3000';
+  serverUrl = 'https://medicl-be.herokuapp.com';
   constructor(private http: HttpClient,private route:Router) { }
   getCustomers(){
     console.log('data service called');
