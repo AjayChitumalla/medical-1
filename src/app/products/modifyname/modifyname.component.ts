@@ -40,7 +40,7 @@ export class ModifynameComponent implements OnInit {
   OnSubmit(){
     alert("Are you sure to update the selected shop from database?");
     this.ind=this.products.findIndex(e=>e.Name===this.newname);
-    if(this.ind!=1){
+    if(this.ind!=-1){
       this.allowed=0;
     }
     else{
