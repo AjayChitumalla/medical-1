@@ -40,7 +40,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" *ngIf="permission()" style="cursor: pointer;" routerLink="/transactions/alldues">Due Orders</a>
-            <a class="dropdown-item" *ngIf="!permission()" style="cursor: pointer;" routerLink="/products/userdues">My Due Orders</a>
+            <a class="dropdown-item" *ngIf="!permission()" style="cursor: pointer;" routerLink="/transactions/userdues">My Due Orders</a>
             <!-- <a class="dropdown-item" *ngIf="permission()" style="cursor: pointer;" routerLink="/products/alluserorders">All Transactions</a> -->
           </div>
         </li>

@@ -8,12 +8,14 @@ import { TransactionService } from '../transaction.service';
 })
 export class UserordersComponent implements OnInit {
   orders;
+  Amount;
   constructor(public data:TransactionService) { }
 
   ngOnInit() {
     if(localStorage.getItem('ShopName')!=""){
     this.data.myorders(localStorage.getItem('ShopName')).subscribe(d=>{
       this.orders=d['Items'];
+      this.Amount=d['Amount'];
     })
   }
   }
